@@ -23,7 +23,7 @@
             <div class="col s6 m3">
               <div class="card orange">
                 <div class="card-content">
-                  <span class="card-title">{{ $t('home.howIDev.responsive.title') }}</span>
+                  <span class="card-title" v-html="$t('home.howIDev.responsive.title')"></span>
                   <p>{{ $t('home.howIDev.responsive.content') }}</p>
                 </div>
               </div>
@@ -142,55 +142,54 @@ export default {
 </script>
 
 <style scoped>
-h1
-{
+h1 {
   font-weight: 500;
   margin-bottom: 5px;
   text-shadow: 10px #000000;
 }
-h2
-{
+
+h2 {
   margin-top: 20px;
   font-size: 1.7rem;
 }
-p
-{
+
+p {
   font-size: 1.1rem;
   margin: 5px;
 }
-i
-{
+
+i {
   color: #4db6ac;
   font-style: normal;
 }
-b
-{
+
+b {
   color: #ff9800;
 }
-.large-card-title
-{
+
+.large-card-title {
   font-size: 1.9rem;
   font-weight: 600;
 }
-a
-{
+
+a {
   font-weight: 600;
 }
-.question-title
-{
+
+.question-title {
   font-size: 1.3rem;
   font-weight: 400;
 }
-.btn
-{
+
+.btn {
   margin-top: 10px;
 }
-.discover-part
-{
+
+.discover-part {
   margin-top: 20px;
 }
-.divider
-{
+
+.divider {
   background-color: #ffffff;
 }
 </style>

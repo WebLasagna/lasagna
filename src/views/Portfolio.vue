@@ -44,12 +44,11 @@ export default {
 </script>
 
 <style scoped>
-p
-{
+p {
   font-size: 1.1rem;
 }
-b
-{
+
+b {
   margin-top: 15px;
   font-size: 1.2rem;
 }

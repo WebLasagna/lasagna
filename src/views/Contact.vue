@@ -38,7 +38,7 @@
             <div class="card discord-blue">
               <div class="card-content">
                 <span class="card-title">Discord</span>
-                <b>Lasagna#1019</b>
+                <b>@Lasagna#1019</b>
               </div>
             </div>
           </div>
@@ -46,15 +46,15 @@
             <div class="card black waves-effect waves-light" @click="openGitHub">
               <div class="card-content">
                 <span class="card-title">GitHub<i class="material-icons hide-on-small-only right">open_in_new</i></span>
-                <b>WebLasagna</b>
+                <b>@WebLasagna</b>
               </div>
             </div>
           </div>
           <div class="col s6 m3">
-            <div class="card instagram-pink waves-effect waves-light" @click="openInsta">
+            <div class="card black waves-effect waves-light" @click="openDEV()">
               <div class="card-content">
-                <span class="card-title">Instagram<i class="material-icons hide-on-small-only right">open_in_new</i></span>
-                <b>octave.lr</b>
+                <span class="card-title">DEV.to <i class="material-icons hide-on-small-only right">open_in_new</i></span>
+                <b>@octave</b>
               </div>
             </div>
           </div>
@@ -130,8 +130,8 @@ export default {
     openGitHub() {
       window.open('https://github.com/WebLasagna')
     },
-    openInsta() {
-      window.open('https://instagram.com/octave.lr')
+    openDEV() {
+      window.open('https://dev.to/octave')
     },
     submit() {
       if (!this.name || !this.email.value || !this.content) {

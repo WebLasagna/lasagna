@@ -16,7 +16,7 @@ const messages = {
         "content": "Chargement instantané et économe en données."
       },
       "responsive": {
-        "title": "Responsive",
+        "title": "<i>Responsive</i>",
         "content": "Adaptés pour smartphone, tablette et ordinateur."
       },
       "intuitive": {
@@ -39,7 +39,7 @@ const messages = {
       "html": "HTML 5",
       "css": "CSS 3",
       "js": {
-        "title": "JavaScript ES8",
+        "title": "JavaScript ES11",
         "content": "Vue, Node et jQuery"
       },
       "php": "PHP 7"
@@ -99,6 +99,11 @@ const messages = {
       "password": "Mot de passe",
       "logoutButton": "se déconnecter"
     }
+  },
+  "error404": {
+    "title": "Erreur 404",
+    "explanation": "La page que vous cherchez n'existe pas.",
+    "button": "page principale"
   },
   "links": {
     "portfolio": "portfolio",

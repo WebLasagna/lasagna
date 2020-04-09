@@ -27,14 +27,14 @@
 
 <style scoped>
 a {
-font-weight: 600;
+  font-weight: 600;
 }
 
 .translation-warning {
-width: fit-content;
-background-color: #b71c1c;
-padding: 12px;
-margin: 0;
-border-radius: 20px;
+  width: fit-content;
+  background-color: #b71c1c;
+  padding: 12px;
+  margin: 0;
+  border-radius: 20px;
 }
 </style>

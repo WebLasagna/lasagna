@@ -15,36 +15,7 @@ export default new Vuex.Store({
     ssid: null,
     user: null,
     admin: {
-      websites: [
-        {
-          id: 1,
-          name: "Lasagna",
-          description: "Site personnel",
-          content: "<a href='https://lasagna.cf/mftp'>Accéder au MFTP</a>",
-          address: "lasagna.cf",
-          themeColor: "#ff9800",
-          controlLink: 'https://lasagna.cf/api/controlWebsite.php',
-          layout: {"x":0,"y":0,"w":3,"h":5,"i":"1"}
-        },
-        {
-          id: 2,
-          name: "FGBerlin.com",
-          description: "Site des élèves du Lycée français de Berlin",
-          content: "<a href='https://lasagna.cf/mftpfg'>Accéder au MFTP</a>",
-          address: "fgberlin.com",
-          themeColor: "#4caf50",
-          layout: {"x":3,"y":0,"w":3,"h":5,"i":"2"}
-        },
-        {
-          id: 3,
-          name: "BOHKOO",
-          description: "Boutique en ligne de BOHKOO, marque de streetwear.",
-          content: "<a href='https://lasagna.cf/mftpbohkoo'>Accéder au MFTP</a>",
-          address: "bohkoo.store",
-          themeColor: "#000",
-          layout: {"x":6,"y":0,"w":3,"h":5,"i":"3"}
-        }
-      ]
+      websites: []
     },
     locale: navigator.language.split('-')[0]
   },

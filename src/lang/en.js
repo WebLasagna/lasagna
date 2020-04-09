@@ -38,7 +38,7 @@ const messages = {
       "html": "HTML 5",
       "css": "CSS 3",
       "js": {
-        "title": "JavaScript ES8",
+        "title": "JavaScript ES11",
         "content": "Vue, Node and jQuery"
       },
       "php": "PHP 7"
@@ -97,6 +97,11 @@ const messages = {
       "password": "Password",
       "logoutButton": "log out"
     }
+  },
+  "error404": {
+    "title": "Error 404",
+    "explanation": "The page you're looking for doesn't exist.",
+    "button": "homepage"
   },
   "links": {
     "portfolio": "portfolio",
