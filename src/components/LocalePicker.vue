@@ -10,7 +10,7 @@
           <a class="btn-floating btn-small black waves-effect waves-light" @click="changeLocale('fr')" :class="{ 'grey darken-3': $store.state.locale === 'fr' }">fr</a>
         </div>
         <div class="col">
-          <a class="btn-floating btn-small black waves-effect waves-light" @click="changeLocale('cn')" :class="{ 'grey darken-3': $store.state.locale === 'fr' }">cn</a>
+          <a class="btn-floating btn-small black waves-effect waves-light" @click="changeLocale('cn')" :class="{ 'grey darken-3': $store.state.locale === 'cn' }">cn</a>
         </div>
       </div>
     </div>

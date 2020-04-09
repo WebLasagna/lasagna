@@ -128,18 +128,15 @@
     <div class="left col s12 m3 l2">
       <LocalePicker/>
     </div>
-    <SupportChat/>
   </div>
 </template>
 
 <script>
 import LocalePicker from '../components/LocalePicker'
-import SupportChat from '../components/SupportChat'
 export default {
   name: 'Home',
   components: {
-    LocalePicker,
-    SupportChat
+    LocalePicker
   }
 }
 </script>

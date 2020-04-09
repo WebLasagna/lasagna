@@ -15,8 +15,36 @@ export default new Vuex.Store({
     ssid: null,
     user: null,
     admin: {
-      websites: null,
-      searchResults: null
+      websites: [
+        {
+          id: 1,
+          name: "Lasagna",
+          description: "Site personnel",
+          content: "<a href='https://lasagna.cf/mftp'>Accéder au MFTP</a>",
+          address: "lasagna.cf",
+          themeColor: "#ff9800",
+          controlLink: 'https://lasagna.cf/api/controlWebsite.php',
+          layout: {"x":0,"y":0,"w":3,"h":5,"i":"1"}
+        },
+        {
+          id: 2,
+          name: "FGBerlin.com",
+          description: "Site des élèves du Lycée français de Berlin",
+          content: "<a href='https://lasagna.cf/mftpfg'>Accéder au MFTP</a>",
+          address: "fgberlin.com",
+          themeColor: "#4caf50",
+          layout: {"x":3,"y":0,"w":3,"h":5,"i":"2"}
+        },
+        {
+          id: 3,
+          name: "BOHKOO",
+          description: "Boutique en ligne de BOHKOO, marque de streetwear.",
+          content: "<a href='https://lasagna.cf/mftpbohkoo'>Accéder au MFTP</a>",
+          address: "bohkoo.store",
+          themeColor: "#000",
+          layout: {"x":6,"y":0,"w":3,"h":5,"i":"3"}
+        }
+      ]
     },
     locale: navigator.language.split('-')[0]
   },
@@ -72,18 +100,6 @@ export default new Vuex.Store({
         })
       })
     },
-    getWebsiteInfo ({ commit }, { websiteId }) {
-      return new Promise((resolve, reject) => {
-        axios.post(apiBaseUrl + '/getWebsiteInfo.php',
-          JSON.stringify({ adminSsid: this.state.ssid, websiteId: websiteId })
-        )
-        .then(r => r.data)
-        .then(websiteInfo => {
-          commit('loadWebsiteInfo', websiteInfo)
-          resolve()
-        })
-      })
-    },
     addWebsite ({ commit }, { name, description, address, themeColor }) {
       return new Promise((resolve, reject) => {
         axios.post(apiBaseUrl + '/addWebsite.php',
@@ -119,16 +135,6 @@ export default new Vuex.Store({
           else reject()
         })
       })
-    },
-    searchDomainName ({ commit }, { domainName }) {
-      return new Promise((resolve, reject) => {
-        axios.post('https://api.freenom.com/v2/domain/search?domainname=' + domainName + '&domaintype=FREE')
-        .then(r => r.data)
-        .then(searchResults => {
-          commit('loadSearchResults', searchResults)
-          resolve()
-        })
-      })
     }
   },
   mutations: {
@@ -145,14 +151,10 @@ export default new Vuex.Store({
     loadUserInfo(state, data) {
       state.user = data
     },
-    loadAllWebsites(state, data) {
-      state.admin.allWebsites = data
-    },
-    loadWebsiteInfo(state, data) {
-      state.admin.currentWebsite = data
-    },
-    loadSearchResults(state, data) {
-      state.admin.searchResults = data
+    updateLayout(state, { websiteId, newX, newY }) {
+      var website = state.admin.websites.find(website => website.id === websiteId)
+      website.layout.x = newX
+      website.layout.y = newY
     }
   }
 })

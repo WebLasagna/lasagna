@@ -9,24 +9,29 @@
             <div class="row" v-if="websitesLoading">
               <Spinner/>
             </div>
-            <div v-if="!websitesLoading && !addWebsiteForm.show">
-              <div class="row" v-if="websites">
-                <div class="col s12 m4" v-for="website in websites" :key="website.id">
-                  <div :class="['card waves-effect ' + website.themeColor, { 'waves-light': website.themeColor === 'black' }]" @click="$router.push('/' + $t('links.admin.websitePage') + '/' + website.id)">
+            <div class="layout-row" v-if="!websitesLoading && !addWebsiteForm.show">
+              <grid-layout :layout.sync="layout" :col-num="12" :row-height="30" :is-draggable="dragMode" :is-resizable="false" :is-mirrored="false" :vertical-compact="true" :margin="[20, 20]" :use-css-transforms="true">
+                <grid-item v-for="website in layout" :x="website.x" :y="website.y" :w="website.w" :h="website.h" :i="website.i" :key="website.i" @moved="moveEvent">
+                  <div :class="['card waves-effect', { 'waves-light': website.themeColor === 'black' }]" :style="'background-color: ' + website.themeColor + ';'" @click="goToWebsitePage(website.id)">
                     <div class="card-content">
                       <span class="card-title">{{ website.name }}</span>
                       <p>{{ website.description }}</p>
                       <a class="website-address" :href="'https://' + website.address" target="_blank">{{ website.address }}</a>
                     </div>
                   </div>
-                </div>
-              </div>
-              <div class="row" v-else>
-                <b>{{ $t('admin.noWebsites') }}</b>
-              </div>
+                </grid-item>
+              </grid-layout>
             </div>
-            <div class="row" v-if="!addWebsiteForm.show">
-              <a class="btn-floating btn-large black waves-effect waves-light" @click="addWebsiteForm.show = true"><i class="material-icons">add</i></a>
+            <div class="row" v-else>
+              <b>{{ $t('admin.noWebsites') }}</b>
+            </div>
+            <div class="center" v-if="!addWebsiteForm.show">
+              <div class="col">
+                <a class="btn-floating btn-large black waves-effect waves-light" :class="{ 'grey darken-3': dragMode }" @click="toggleDragMode()"><i class="material-icons">filter_none</i></a>
+              </div>
+              <div class="col">
+                <a class="btn-floating btn-large black waves-effect waves-light" @click="addWebsiteForm.show = true"><i class="material-icons">add</i></a>
+              </div>
             </div>
             <div class="row" v-else>
               <div class="card quite-black" :class="addWebsiteForm.themeColor">
@@ -56,19 +61,6 @@
               </div>
             </div>
           </div>
-          <div class="row">
-            <h2>{{ $t('admin.domainNames') }}</h2>
-            <form @submit.prevent="search()" v-if="!searchResults">
-              <div class="input-field flex">
-                <input class="cinput" id="search" v-model="searchForm.domainName">
-                <label for="search">Recherche</label>
-              </div>
-              <i class="material-icons search-icon" @click="search()">search</i>
-            </form>
-            <div v-else>
-              <p>{{ searchResults }}</p>
-            </div>
-          </div>
           <router-link class="btn-large black waves-effect waves-light" :to="'/' + $t('links.admin.myAccount')"><i class="material-icons left">account_circle</i>{{ $t('admin.myAccount.title') }}</router-link>
           <div class="row"> 
             <router-link class="btn-floating btn-back black waves-effect waves-light" to="/"><i class="material-icons">arrow_back</i></router-link>
@@ -81,14 +73,19 @@
 
 <script>
 import Spinner from '../../components/Spinner'
+import VueGridLayout from 'vue-grid-layout'
+
 export default {
   name: 'Admin',
   components: {
-    Spinner
+    Spinner,
+    GridLayout: VueGridLayout.GridLayout,
+    GridItem: VueGridLayout.GridItem
   },
   data() {
     return {
-      websitesLoading: true,
+      websitesLoading: false,
+      dragMode: false,
       addWebsiteForm: {
         show: false,
         name: null,
@@ -96,27 +93,39 @@ export default {
         address: null,
         themeColor: null,
         buttonCooldowned: false
-      },
-      searchForm: {
-        domainName: null,
-        buttonCooldowned: false
       }
     }
   },
   mounted() {
-    this.$store.dispatch('getAllWebsites').then(() => {
+    /* this.$store.dispatch('getAllWebsites').then(() => {
       this.websitesLoading = false
-    })
+    }) */
   },
   computed: {
     websites() {
       return this.$store.state.admin.allWebsites
     },
-    searchResults() {
-      return this.$store.state.admin.searchResults
+    layout() {
+      var layout = []
+      this.$store.state.admin.websites.forEach(website => {
+        layout.push(Object.assign(website.layout, { "id": website.id, "name": website.name, "description": website.description, "content": website.content, "address": website.address, "themeColor": website.themeColor }))
+      })
+      return layout
     }
   },
   methods: {
+    toggleDragMode() {
+      if(this.dragMode) this.dragMode = false
+      else this.dragMode = true
+    },
+    moveEvent(i, newX, newY) {
+      var website = this.$store.state.admin.websites.find(website => website.layout.i === i)
+      this.$store.commit('updateLayout', { websiteId: website.id, newX: newX, newY: newY })
+    },
+    goToWebsitePage(websiteId) {
+      if(this.dragMode) return
+      this.$router.push('/' + this.$t('links.admin.websitePage') + '/' + websiteId)
+    },
     addWebsite() {
       this.addWebsiteForm.buttonCooldowned = true
       this.$store.dispatch('addWebsite', { name: this.addWebsiteForm.name, description: this.addWebsiteForm.description, address: this.addWebsiteForm.address, themeColor: this.addWebsiteForm.themeColor }).then(() => {
@@ -129,15 +138,6 @@ export default {
           this.addWebsiteForm.buttonCooldowned = false
         })
       })
-    },
-    search() {
-      if(this.searchForm.buttonCooldowned) return
-      this.searchForm.buttonCooldowned = true
-      this.$store.dispatch('searchDomainName', { domainName: this.searchForm.buttonCooldowned }).then(() => {
-        setTimeout(() => {
-          this.searchForm.buttonCooldowned = false
-        }, 3000)
-      })
     }
   }
 }
@@ -145,8 +145,13 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  width: 100%;
   -webkit-transition: ease-in-out .5s;
   transition: ease-in-out .5s;
+
+  .card-content {
+    width: 100%;
+  }
 }
 .card-title,
 input.input-card-title {
@@ -195,10 +200,6 @@ textarea.input-card-content {
 label {
   top: -20px;
   left: 10px;
-}
-
-.search-icon {
-  right: -35px;
 }
 
 .website-address {
