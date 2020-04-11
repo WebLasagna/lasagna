@@ -1,11 +1,6 @@
+# [Lasagna](https://lasagna.cf)
 
-<center>
-  <a href="https://lasagna.cf" target="_blank"><h1>Lasagna</h1></a>
-</center>
-
-<center color="#bdbdbd">
-  <i>Lasagna's personal website.</i>
-</center>
+_Lasagna's personal website_
 
 ## Getting started
 
