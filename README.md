@@ -31,13 +31,13 @@ npm run build
 
 ## Built with
 
-* [Vue.js](https://github.com/vuejs/vue/) ([Vue CLi](https://github.com/vuejs/vue-router))
-* [Vuex](https://github.com/vuejs/vuex) ([vuex-persisted-state plugin](https://github.com/robinvdvleuten/vuex-persistedstate))
-* [vue-router](https://github.com/vuejs/vue-router)
-* [vue-i18n](https://github.com/kazupon/vue-i18n)
-* [vue-analytics](https://github.com/MatteoGabriele/vue-analytics)
-* [vue-grid-layout](https://github.com/jbaysolutions/vue-grid-layout)
-* [axios](https://github.com/axios/axios)
+- [Vue.js](https://github.com/vuejs/vue/) ([Vue CLi](https://github.com/vuejs/vue-router))
+- [Vuex](https://github.com/vuejs/vuex) ([vuex-persisted-state plugin](https://github.com/robinvdvleuten/vuex-persistedstate))
+- [vue-router](https://github.com/vuejs/vue-router)
+- [vue-i18n](https://github.com/kazupon/vue-i18n)
+- [vue-analytics](https://github.com/MatteoGabriele/vue-analytics)
+- [vue-grid-layout](https://github.com/jbaysolutions/vue-grid-layout)
+- [axios](https://github.com/axios/axios)
 
 ## License
 
