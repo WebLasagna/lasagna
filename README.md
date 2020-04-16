@@ -1,13 +1,9 @@
+<div align="center">
+  <a href="https://lasagna.cf"><h1>Lasagna</h1></a>
+  <i>My personal website.</i>
+</div>
 
-<center>
-  <a href="https://lasagna.cf" target="_blank"><h1>Lasagna</h1></a>
-</center>
-
-<center color="#bdbdbd">
-  <i>Lasagna's personal website.</i>
-</center>
-
-## Getting started
+### Getting started 
 
 #### Installation
 
@@ -34,17 +30,15 @@ npm run serve
 npm run build
 ```
 
-## Built with
+## Built with
 
-* [Vue.js](https://github.com/vuejs/vue/) ([Vue CLi](https://github.com/vuejs/vue-router))
-* [Vuex](https://github.com/vuejs/vuex) ([vuex-persisted-state plugin](https://github.com/robinvdvleuten/vuex-persistedstate))
-* [vue-router](https://github.com/vuejs/vue-router)
-* [vue-i18n](https://github.com/kazupon/vue-i18n)
-* [vue-analytics](https://github.com/MatteoGabriele/vue-analytics)
-* [vue-grid-layout](https://github.com/jbaysolutions/vue-grid-layout)
-* [axios](https://github.com/axios/axios)
+- [Vue.js](https://github.com/vuejs/vue/) ([Vue CLi](https://github.com/vuejs/vue-router))
+- [Vuex](https://github.com/vuejs/vuex) ([vuex-persisted-state plugin](https://github.com/robinvdvleuten/vuex-persistedstate))
+- [vue-router](https://github.com/vuejs/vue-router)
+- [vue-i18n](https://github.com/kazupon/vue-i18n)
+- [vue-grid-layout](https://github.com/jbaysolutions/vue-grid-layout)
+- [axios](https://github.com/axios/axios)
 
-
-## License
+## License
 
 This project is licensed under the [MIT License](https://github.com/WebLasagna/lasagna/blob/master/LICENSE).

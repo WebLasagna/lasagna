@@ -110,7 +110,7 @@ h2 {
 </style>
 
 <script>
-import { setTimeout } from 'timers';
+import axios from 'axios'
 export default {
   name: 'Contact',
   data() {
@@ -143,7 +143,7 @@ export default {
         this.buttonCooldowned = false
         this.formStatus = null
       }, 10000);
-      this.axios.post('https://lasagna.cf/api/sendContactForm.php',
+      axios.post('https://lasagna.cf/api/sendContactForm.php',
           JSON.stringify({
             name: this.name,
             email: this.email,

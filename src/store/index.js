@@ -7,7 +7,7 @@ import i18n from 'vue-i18n'
 
 Vue.use(Vuex)
 
-var apiBaseUrl = 'https://lasagna.cf/api'
+var apiHost = 'https://lasagna.cf/api'
 
 export default new Vuex.Store({
   plugins: [createPersistedState()],
@@ -22,7 +22,7 @@ export default new Vuex.Store({
   actions: {
     login ({ dispatch, commit }, { username, password }) {
       return new Promise((resolve, reject) => {
-        axios.post(apiBaseUrl + '/login.php',
+        axios.post(apiHost + '/login.php',
           JSON.stringify({ username: username, password: password })
         )
         .then(r => r.data)
@@ -44,7 +44,7 @@ export default new Vuex.Store({
     },
     getAdminInfo ({ commit }) {
       return new Promise((resolve, reject) => {
-        axios.post(apiBaseUrl + '/getAdminInfo.php',
+        axios.post(apiHost + '/getAdminInfo.php',
           JSON.stringify({ adminSsid: this.state.ssid })
         )
         .then(r => r.data)
@@ -56,7 +56,7 @@ export default new Vuex.Store({
     },
     getAllWebsites ({ commit }) {
       return new Promise((resolve, reject) => {
-        axios.post(apiBaseUrl + '/getAllWebsites.php',
+        axios.post(apiHost + '/getAllWebsites.php',
           JSON.stringify({ adminSsid: this.state.ssid })
         )
         .then(r => r.data)
@@ -73,37 +73,67 @@ export default new Vuex.Store({
     },
     addWebsite ({ commit }, { name, description, address, themeColor }) {
       return new Promise((resolve, reject) => {
-        axios.post(apiBaseUrl + '/addWebsite.php',
+        axios.post(apiHost + '/addWebsite.php',
           JSON.stringify({ adminSsid: this.state.ssid, name: name, description: description, address: address, themeColor: themeColor })
         )
         .then(r => r.data)
         .then(resCode => {
           if(resCode === 'success') resolve()
-          else reject()
+          else reject(resCode)
         })
       })
     },
     editWebsiteInfo ({ commit }, { websiteId, newWebsiteId, name, description, address, themeColor }) {
       return new Promise((resolve, reject) => {
-        axios.post(apiBaseUrl + '/editWebsiteInfo.php',
+        axios.post(apiHost + '/editWebsiteInfo.php',
           JSON.stringify({ adminSsid: this.state.ssid, websiteId: websiteId, newWebsiteId: newWebsiteId, name: name, description: description, address: address, themeColor: themeColor })
         )
         .then(r => r.data)
         .then(resCode => {
           if(resCode === 'success') resolve()
-          else reject()
+          else reject(resCode)
         })
       })
     },
     deleteWebsite ({ commit }, { websiteId }) {
       return new Promise((resolve, reject) => {
-        axios.post(apiBaseUrl + '/deleteWebsite.php',
+        axios.post(apiHost + '/deleteWebsite.php',
           JSON.stringify({ adminSsid: this.state.ssid, websiteId: websiteId })
         )
         .then(r => r.data)
         .then(resCode => {
           if(resCode === 'success') resolve()
-          else reject()
+          else reject(resCode)
+        })
+      })
+    },
+    controlWebsite ({}, { controlLink, action }) {
+      return new Promise((resolve, reject) => {
+        axios.post(controlLink,
+          JSON.stringify({ adminSsid: this.state.adminSsid, action: action })  
+        )
+        .then(r => r.data)
+        .then(res => {
+          if(action === 'getStatus') {
+            if(res !== 'open' && res !== 'closed') reject(res)
+            resolve(res)
+          }
+          else if(action === 'start') {
+            if(resCode === 'success') resolve()
+            else reject(resCode)
+          }
+          else if(action === 'stop') {
+            if(resCode === 'success') resolve()
+            else reject(resCode)
+          }
+          else if(action === 'unlock') {
+            if(resCode === 'success') resolve()
+            else reject(resCode)
+          }
+          else if(action === 'lock') {
+            if(resCode === 'success') resolve()
+            else reject(resCode)
+          }
         })
       })
     }

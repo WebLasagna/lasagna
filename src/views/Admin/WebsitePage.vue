@@ -6,6 +6,12 @@
           <h1 :style="'color: ' + website.themeColor + ';'">{{ website.name }}</h1>
           <p>{{ website.description }}</p>
           <a class="website-address" :href="'https://' + website.address" target="_blank">{{ website.address }}</a>
+          <div v-if="website.controlLink && websiteControl.loading">
+            <Spinner/>
+          </div>
+          <div v-else-if="website.controlLink">
+            <span>{{ c.status }}</span>
+          </div>
           <div class="row">
             <i class="material-icons action-icon" @click="editForm.show = true">edit</i>
             <i class="material-icons action-icon" @click="deleteWebsite()">delete</i>
@@ -13,7 +19,7 @@
         </div>
         <div class="center" v-else>
           <form @submit.prevent="editWebsite()">
-            <input type="text" class="input-h1" v-model="editForm.name">
+            <input type="text" class="input-h1" :style="'color: ' + website.themeColor + ';'" v-model="editForm.name">
             <input type="text" class="input-description" v-model="editForm.description">
             <input type="text" class="input-address" v-model="editForm.address">
             <input type="text" class="input-id" v-model="editForm.id">
@@ -41,6 +47,9 @@
 import Spinner from '../../components/Spinner'
 export default {
   name: 'WebsitePage',
+  components: {
+    Spinner
+  },
   data() {
     return {
       editForm: {
@@ -48,8 +57,24 @@ export default {
         name: null,
         description: null,
         address: null,
-        id: null
+        id: null,
+      },
+      websiteControl: {
+        loading: true,
+        status: null
       }
+    }
+  },
+  mounted() {
+    this.editForm.name = this.website.name
+    this.editForm.description = this.website.description
+    this.editForm.address = this.website.address
+    this.editForm.id = this.website.id
+
+    if(this.website.controlLink) {
+      this.$store.dispatch('controlWebsite', { controlLink: this.website.controlLink, action: 'getStatus' }).then(status => {
+        this.websiteControl.status = status
+      })
     }
   },
   computed: {
@@ -125,6 +150,6 @@ a,
 }
 .btn-row {
   display: inline-flex;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 </style>
