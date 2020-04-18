@@ -42,3 +42,6 @@ npm run build
 ## License
 
 This project is licensed under the [MIT License](https://github.com/WebLasagna/lasagna/blob/master/LICENSE).
+
+## Support me
+[![Buy me a coffee](https://cdn.buymeacoffee.com/buttons/lato-orange.png)](https://www.buymeacoffee.com/octave)
