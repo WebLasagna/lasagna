@@ -97,9 +97,9 @@ export default {
     }
   },
   mounted() {
-    /* this.$store.dispatch('getAllWebsites').then(() => {
+    this.$store.dispatch('getWebsites').then(() => {
       this.websitesLoading = false
-    }) */
+    })
   },
   computed: {
     websites() {

@@ -16,20 +16,6 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/portfolio',
-      alias: ['/作品集'],
-      name: 'portfolio',
-      component: () =>
-        import(/* webpackChunkName: "portfolio" */ './views/Portfolio')
-    },
-    {
-      path: '/contact',
-      alias: ['/联络'],
-      name: 'contact',
-      component: () =>
-        import(/* webpackChunkName: "contact" */ './views/Contact')
-    },
-    {
       path: '/conditions',
       name: 'conditions',
       component: () =>

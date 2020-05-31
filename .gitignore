@@ -105,3 +105,6 @@ dist
 
 # Dev draft
 .tempstore
+
+.vercel
+src/views/Admin
