@@ -14,7 +14,7 @@
               <a class="project localify" href="https://localify.cf" target="_blank">Localify</a>
             </div>
             <div class="s12 m2">
-              <a class="project vercel-bot" href="https://vercelbot.cf" target="_blank">Vercel bot</a>
+              <a class="project vercel-bot">Vercel bot</a>
             </div>
             <div class="s12 m2">
               <a class="project orga" href="https://board.orga.ml" target="_blank">OrgaBoard</a>
