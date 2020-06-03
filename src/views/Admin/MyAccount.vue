@@ -25,9 +25,6 @@
               <a class="btn btn-logout red lighten-1 waves-effect waves-light" @click="logout">{{ $t('admin.myAccount.logoutButton') }}</a>
             </div>
           </div>
-          <div class="center">
-            <LocalePicker />
-          </div>
           <div class="row">
             <router-link class="btn-floating btn-back black waves-effect waves-light" :to="'/' + $t('links.admin.home')"><i class="material-icons">arrow_back</i></router-link>
           </div>
@@ -38,12 +35,8 @@
 </template>
 
 <script>
-import LocalePicker from '../../components/LocalePicker'
 export default {
   name: 'MyAccount',
-  components: {
-    LocalePicker
-  },
   data() {
     return {
       changeUsernameForm: {

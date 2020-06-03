@@ -16,19 +16,6 @@ const router = new Router({
       component: Home
     },
     {
-      path: '/conditions',
-      name: 'conditions',
-      component: () =>
-        import(/* webpackChunkName: "legal" */ './views/Legal/Conditions')
-    },
-    {
-      path: '/confidentialite',
-      alias: '/privacy',
-      name: 'privacy',
-      component: () =>
-        import(/* webpackChunkName: "legal" */ './views/Legal/Privacy')
-    },
-    {
       path: '/admin',
       name: 'admin',
       component: () =>

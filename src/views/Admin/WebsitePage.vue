@@ -7,7 +7,7 @@
           <p>{{ website.description }}</p>
           <a class="website-address" :href="'https://' + website.address" target="_blank">{{ website.address }}</a>
           <div v-if="website.controlLink && websiteControl.loading">
-            <Spinner/>
+            <p>Loading...</p>
           </div>
           <div v-else-if="website.controlLink">
             <span>{{ c.status }}</span>
@@ -44,12 +44,8 @@
 </template>
 
 <script>
-import Spinner from '../../components/Spinner'
 export default {
   name: 'WebsitePage',
-  components: {
-    Spinner
-  },
   data() {
     return {
       editForm: {

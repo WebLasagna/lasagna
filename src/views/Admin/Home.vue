@@ -7,7 +7,7 @@
           <div class="row">
             <h2>{{ $t('admin.websites') }}</h2>
             <div class="row" v-if="websitesLoading">
-              <Spinner/>
+              <p>Loading...</p>
             </div>
             <div class="layout-row" v-if="!websitesLoading && !addWebsiteForm.show">
               <grid-layout :layout.sync="layout" :col-num="12" :row-height="30" :is-draggable="dragMode" :is-resizable="false" :is-mirrored="false" :vertical-compact="true" :margin="[20, 20]" :use-css-transforms="true">
@@ -72,13 +72,11 @@
 </template>
 
 <script>
-import Spinner from '../../components/Spinner'
 import VueGridLayout from 'vue-grid-layout'
 
 export default {
   name: 'Admin',
   components: {
-    Spinner,
     GridLayout: VueGridLayout.GridLayout,
     GridItem: VueGridLayout.GridItem
   },
