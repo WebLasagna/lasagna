@@ -22,6 +22,14 @@
           </div>
         </div>
         <div class="center">
+          <h2>Experiments</h2>
+          <div class="row jcc">
+            <div class="s12 m2">
+              <a class="project ig-bot" href="https://github.com/Dungeon-bots/invite-generator" target="_blank">Invite Generator bot</a>
+            </div>
+          </div>
+        </div>
+        <div class="center">
           <h2>Skills</h2>
           <h3>HTML / CSS (SCSS)</h3>
           <h3>JavaScript / TypeScript :</h3>
@@ -104,6 +112,10 @@ a.project {
 
 .vercel-bot {
   color: #000;
+}
+
+.ig-bot {
+  color: #7289DA;
 }
 
 p {
