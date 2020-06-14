@@ -2,16 +2,28 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import router from '../router'
 import createPersistedState from 'vuex-persistedstate'
+import SecureLS from "secure-ls";
+var ls = new SecureLS({ isCompression: false })
 import axios from 'axios'
-import i18n from 'vue-i18n'
+import i18n from '../i18n'
+import snowflake from './snowflake'
 
 Vue.use(Vuex)
 
 var apiHost = 'https://lasagna.cf/api/'
 
 export default new Vuex.Store({
-  plugins: [createPersistedState()],
+  plugins: [
+    createPersistedState({
+      storage: {
+        getItem: (key) => ls.get(key),
+        setItem: (key, value) => ls.set(key, value),
+        removeItem: (key) => ls.remove(key)
+      }
+    })
+  ],
   state: {
+    userId: snowflake(),
     ssid: null,
     user: null,
     admin: {
@@ -19,11 +31,9 @@ export default new Vuex.Store({
     },
     locale: navigator.language.split('-')[0]
   },
-  actions: {
-    
-  },
   mutations: {
     changeLocale(state, newLocale) {
+      i18n.locale = newLocale
       state.locale = newLocale
     },
     logout (state) {

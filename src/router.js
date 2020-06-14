@@ -55,6 +55,13 @@ const router = new Router({
       }
     },
     {
+      path: '/privacy',
+      alias: '/confidentialite',
+      name: 'privacy',
+      component: () =>
+        import(/* webpackChunkName: "legal" */ './views/Privacy')
+    },
+    {
       path: '*',
       name: 'error404',
       component: () =>

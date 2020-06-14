@@ -4,6 +4,8 @@ body {
   font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
   background-color: #eee;
   margin: 0;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
 .fade-enter-active,
@@ -187,5 +189,6 @@ body {
 
 a {
   color: #1a237e;
+  font-weight: 600;
   text-decoration: none;
 }

@@ -5,7 +5,7 @@
         <div class="center">
           <h1>{{ $t('error404.title') }}</h1>
           <p>{{ $t('error404.explanation') }}</p>
-          <router-link to="/" class="btn grey darken-3 waves-effect waves-light"><i class="material-icons left">home</i>{{ $t('error404.button') }}</router-link>
+          <router-link to="/" class="btn grey darken-3 waves-effect waves-light">{{ $t('error404.button') }}</router-link>
         </div>
       </div>
     </div>
@@ -15,6 +15,9 @@
 
 <script>
   export default {
-    name: 'Error404'
+    name: 'Error404',
+    mounted() {
+      window.analytics.track('pageNotFound')
+    }
   }
 </script>

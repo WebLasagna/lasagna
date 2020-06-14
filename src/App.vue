@@ -12,6 +12,9 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  mounted() {
+    window.analytics.identify(this.$store.state.userId)
+  }
 }
 </script>

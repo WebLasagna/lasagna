@@ -1,9 +1,15 @@
 const messages = {
   "home": {
     "title": "{0}, full-stack web developer",
-    "projects": "Projects",
-    "skills": "Skills",
-    "findMeOn": "Find me on"
+    "projects": "Projects:",
+    "experiments": "Experiments:",
+    "skills": "Skills:",
+    "findMeOn": "Find me on",
+    "contactMe": "Contact me",
+    "privacyPolicy": "Privacy policy"
+  },
+  "privacy": {
+    "title": "Privacy policy"
   },
   "admin": {
     "title": "Admin panel",
@@ -25,9 +31,10 @@ const messages = {
   "error404": {
     "title": "Error 404",
     "explanation": "The page you're looking for doesn't exist.",
-    "button": "homepage"
+    "button": "Homepage"
   },
   "links": {
+    "privacy": "confidentialite",
     "admin": {
       "home": "admin",
       "login": "admin/login",
@@ -37,6 +44,7 @@ const messages = {
   },
   "pageTitles": {
     "home": "Lasagna - Full-stack web developer",
+    "privacy": "Lasagna - Privacy policy",
     "login": "Lasagna - Login",
     "admin": "Lasagna - Admin panel",
     "websitePage": "Lasagna - Website management",

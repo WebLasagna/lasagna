@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.4",
+    "secure-ls": "^1.2.6",
     "vue": "^2.6.11",
     "vue-grid-layout": "^2.3.7",
     "vue-i18n": "^8.15.3",

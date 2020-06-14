@@ -1,56 +1,53 @@
 const messages = {
-  "navbar": {
-    "portfolio": "Portfolio",
-    "contact": "Contact"
-  },
   "home": {
-    "title": "{0}, full-stack web developer",
-    "legal": {
-      "conditionsLink": "Conditions d'utilisation",
-      "privacyLink": "Politique de confidentialité"
-    },
-    "language": "Langue"
+    "title": "{0}, développeur web full-stack",
+    "projects": "Projets : ",
+    "experiments": "Expérimentations :",
+    "skills": "Compétences :",
+    "findMeOn": "Retrouvez moi sur",
+    "contactMe": "Me contacter",
+    "privacyPolicy": "Politique de confidentialité"
+  },
+  "privacy": {
+    "title": "Politique de confidentialité"
   },
   "admin": {
     "title": "Panel admin",
     "websites": "Sites web",
-    "domainNames": "Noms de domaine",
     "noWebsites": "Pas de sites web",
     "addWebsiteForm": {
       "description": "Description",
       "address": "Adresse",
-      "themeColor": "Couleur",
+      "themeColor": "Couleur thème",
       "add": "Ajouter"
     },
     "myAccount": {
       "title": "Mon compte",
       "username": "Nom d'utilisateur",
       "password": "Mot de passe",
-      "logoutButton": "se déconnecter"
+      "logoutButton": "déconnexion"
     }
   },
   "error404": {
     "title": "Erreur 404",
     "explanation": "La page que vous cherchez n'existe pas.",
-    "button": "page principale"
+    "button": "Page principale"
   },
   "links": {
-    "conditions": "conditions",
-    "privacy": "confidentialite",
+    "privacy": "privacy",
     "admin": {
       "home": "admin",
       "login": "admin/connexion",
-      "websitePage": "admin/site",
+      "websitePage": "admin/site-web",
       "myAccount": "admin/mon-compte"
     }
   },
   "pageTitles": {
     "home": "Lasagna - Développeur web full-stack",
-    "conditions": "Lasagna - Conditions d'utilisation",
     "privacy": "Lasagna - Politique de confidentialité",
     "login": "Lasagna - Connexion",
     "admin": "Lasagna - Panel admin",
-    "websitePage": "Lasagna - Gestion du site",
+    "websitePage": "Lasagna - Gestion de site web",
     "myAccount": "Lasagna - Mon compte",
     "error404": "Lasagna - Erreur 404"
   }
