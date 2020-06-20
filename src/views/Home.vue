@@ -74,7 +74,7 @@ export default {
   name: 'Home',
   mounted() {
     let email = ''
-    const encodedEmail = '9cebf9fef0fdeffdfbf2fddcecf1b2f1f9'
+    const encodedEmail = '9cf4f9f0f0f3dcf0fdeffdfbf2fdb2f1f0'
     var keyInHex = encodedEmail.substr(0, 2)
     var key = parseInt(keyInHex, 16)
     for (var n = 2; n < encodedEmail.length; n += 2) {
@@ -146,7 +146,8 @@ h3 {
 }
 
 a.project {
-  margin: 10px 0;
+  display: inline-flex;
+  margin: 5px 0;
   font-size: 1.5rem;
   -webkit-transition: .1s ease-out;
   transition: .1s ease-out;
