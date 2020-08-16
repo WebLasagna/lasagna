@@ -2,10 +2,22 @@
 
 body {
   font-family: 'Roboto Slab', Arial, Helvetica, sans-serif;
-  background-color: #eee;
   margin: 0;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  transition: .3s background-color;
+}
+
+#wave2 {
+  width: 100%;
+  height: 100%;
 }
 
 .fade-enter-active,
@@ -176,6 +188,14 @@ body {
 
 .discord-blue {
   background-color: #7289DA;
+}
+
+.keybase-blue {
+  background-color: #33A0FF;
+}
+
+.instagram-pink {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%); 
 }
 
 .center {

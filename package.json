@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
+    "live": "vc --prod",
     "build": "vue-cli-service build"
   },
   "dependencies": {

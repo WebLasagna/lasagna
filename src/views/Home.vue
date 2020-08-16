@@ -7,35 +7,51 @@
             <b class="name">Lasagna</b>
           </i18n>
         </div>
-        <div class="center">
-          <h2>{{ $t('home.projects') }}</h2>
-          {{ $t.locale }}
-          <div class="row jcc">
-            <div class="s12 m2">
-              <a class="project localify" href="https://localify.cf" target="_blank" @click="track('localify')">Localify</a>
+        <div class="row jcc">
+          <div class="col s12 m4">
+            <div class="center">
+              <h2>{{ $t('home.projects') }}</h2>
+              <div class="row jcc">
+                <div class="s12 m2">
+                  <a class="project localify" href="https://localify.cf" target="_blank" @click="track('localify')">Localify</a>
+                </div>
+              </div>
             </div>
-            <div class="s12 m2">
-              <a class="project vercel-bot">Vercel bot</a>
-            </div>
-            <div class="s12 m2">
-              <a class="project orga" href="https://board.orga.ml" target="_blank" @click="track('orgaboard')">OrgaBoard</a>
+          </div>
+          <div class="col s12 m4">
+            <div class="center">
+              <h2>{{ $t('home.experiments') }}</h2>
+              <div class="row jcc">
+                <div class="s12">
+                  <a class="project orga" href="https://board.orga.ml" target="_blank" @click="track('orgaboard')">OrgaBoard (Vue.js)</a>
+                </div>
+                <div class="s12">
+                  <a class="project ig-bot" href="https://github.com/Dungeon-bots/invite-generator" target="_blank" @click="track('inviteGeneratorBot')">Invite Generator bot (JS)</a>
+                </div>
+                <div class="s12">
+                  <a class="project" href="https://game-of-life-rust.now.sh/" target="_blank" @click="track('inviteGeneratorBot')">Game of Life (Rust)</a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-        <div class="center">
-          <h2>{{ $t('home.experiments') }}</h2>
-          <div class="row jcc">
-            <div class="s12 m4">
-              <a class="project ig-bot" href="https://github.com/Dungeon-bots/invite-generator" target="_blank" @click="track('inviteGeneratorBot')">Invite Generator bot</a>
-            </div>
-          </div>
-        </div>
-        <div class="center">
+        <div class="center skills">
           <h2>{{ $t('home.skills') }}</h2>
-          <h3>HTML / CSS (SCSS)</h3>
-          <h3>JavaScript / TypeScript :</h3>
-          <p>Vue.js, Node.js, Discord.js.</p>
-          <h3>PHP</h3>
+          <div class="row center">
+            <div class="col s12 m2">
+              <h3>HTML / CSS (SCSS)</h3>
+            </div>
+            <div class="col s12 m2">
+              <h3>JavaScript / TypeScript :</h3>
+              <p>Vue.js, Node.js, Discord.js.</p>
+            </div>
+            <div class="col s12 m1">
+              <h3>Rust</h3>
+            </div>
+            <div class="col s12 m1">
+              <h3>PHP</h3>
+            </div>
+          </div>
         </div>
         <div class="row center">
           <div class="s12 m3">
@@ -44,12 +60,20 @@
               <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg" alt="GitHub logo" height="21px">
               GitHub
             </a>
+            <a class="platform keybase-blue" href="https://keybase.io/weblasagna" target="_blank" @click="track('keybase')">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Keybase_logo_official.svg/1114px-Keybase_logo_official.svg.png" alt="Keybase logo" height="21px">
+              Keybase
+            </a>
+            <a class="platform instagram-pink" href="https://instagram.com/weblasagna" target="_blank" @click="track('instagram')">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Instagram_logo_2016.svg/1200px-Instagram_logo_2016.svg.png" alt="Instagram logo" height="21px">
+              Instagram
+            </a>
           </div>
           <div class="s12 m3">
             <h2>{{ $t('home.contactMe') }}</h2>
             <a class="email" ref="email">obfuscated email</a>
             <a class="platform discord-blue" href="https://discord.bio/p/l" target="_blank" @click="track('discord')">
-              <img src="https://discord.com/assets/1c8a54f25d101bdc607cec7228247a9a.svg" alt="GitHub logo" height="25px">
+              <img src="https://discord.com/assets/1c8a54f25d101bdc607cec7228247a9a.svg" alt="Discord logo" height="25px">
               Discord
             </a>
           </div>
@@ -121,6 +145,16 @@ export default {
           name: 'Discord'
         })
       }
+      else if(name === 'instagram') {
+        window.analytics.track('socialMediaClicked', {
+          name: 'Instagram'
+        })
+      }
+      else if(name === 'keybase') {
+        window.analytics.track('socialMediaClicked', {
+          name: 'Keybase'
+        })
+      }
     }
   }
 }
@@ -156,13 +190,17 @@ a.project {
     border-bottom: 1.5px solid currentColor;
 
     &:hover {
-      border-bottom: 2px solid currentColor;
+      filter: brightness(60%);
+    }
+
+    &:active {
+      transform: translateY(1px);
     }
   }
 }
 
 .localify {
-  color: #509dd8;
+  color: #2518E0;
 }
 
 .vercel-bot {
@@ -170,7 +208,7 @@ a.project {
 }
 
 .ig-bot {
-  color: #7289DA;
+  color: #4968d6;
 }
 
 p {
@@ -191,6 +229,12 @@ a {
   font-weight: 600;
 }
 
+.skills {
+  h3 {
+    font-size: 1.3rem;
+  }
+}
+
 .platform {
   cursor: pointer;
   display: flex;
@@ -208,8 +252,11 @@ a {
 
   img {
     position: relative;
-    bottom: -1px;
+    bottom: -2.5px;
     margin-right: 8px;
+  }
+
+  img[alt="GitHub logo"] {
     filter: brightness(0) invert(1);
   }
 }
